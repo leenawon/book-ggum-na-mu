@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { fireDatabase } from 'myFirebase';
+import { addDoc, collection } from 'firebase/firestore';
 import style from 'css/ContentForm.module.css';
 
 function ContentForm() {
@@ -11,6 +13,12 @@ function ContentForm() {
 
   const formSubmit = async(e) => {
     e.preventDefault();
+
+    const contentObject = {
+      text, createdAt: Date.now()
+    };
+
+    await addDoc(collection(fireDatabase, "contents"), contentObject);
     setText("");
   };
 
