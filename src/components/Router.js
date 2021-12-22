@@ -5,7 +5,7 @@ import Home from 'pages/Home';
 import Navigation from 'components/Navigation';
 import Profile from 'pages/Profile';
 
-const AppRouter = ({login}) => {
+const AppRouter = ({login, userObject}) => {
   return (
     <Router>
       {login && <Navigation/>}
@@ -13,7 +13,7 @@ const AppRouter = ({login}) => {
         {
           login ?
           <>
-            <Route exact path="/" element={<Home/>} />
+            <Route exact path="/" element={<Home userObject={userObject}/>} />
             <Route exact path="/profile" element={<Profile/>} />
           </> 
           : <Route exact path="/" element={<Auth/>} />
