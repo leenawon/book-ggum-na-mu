@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import ContentForm from 'components/ContentForm';
 
-function Home() {
+function Home({userObject}) {
   const [contents, setContents] = useState([]);
   
   // database에 있는 데이터 내림차순 정렬 후 state에 저장
@@ -22,7 +22,7 @@ function Home() {
 
   return (
     <div>
-      <ContentForm/>
+      <ContentForm userObject={userObject}/>
       <div>
         {contents.map((content) => (
           <h4>{content.text}</h4>
