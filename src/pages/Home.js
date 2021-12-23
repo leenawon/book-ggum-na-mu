@@ -1,6 +1,7 @@
 import { fireDatabase } from 'myFirebase';
 import React, { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
+import Content from 'components/Content';
 import ContentForm from 'components/ContentForm';
 
 function Home({userObject}) {
@@ -25,7 +26,8 @@ function Home({userObject}) {
       <ContentForm userObject={userObject}/>
       <div>
         {contents.map((content) => (
-          <h4>{content.text}</h4>
+          // isWriter : 작성자와 로그인 중인 사용자가 같은지 true or false 전달
+          <Content key={content.id} content={content} isWriter={content.writerUID === userObject.uid} />
         ))}
       </div>
     </div>
