@@ -3,7 +3,7 @@ import { fireDatabase } from 'myFirebase';
 import { addDoc, collection } from 'firebase/firestore';
 import style from 'css/ContentForm.module.css';
 
-function ContentForm() {
+function ContentForm({userObject}) {
   const [text, setText] = useState("");
 
   const textChange = ({target : {value}}) => {
@@ -15,7 +15,8 @@ function ContentForm() {
     e.preventDefault();
 
     const contentObject = {
-      text, createdAt: Date.now()
+      text, createdAt: Date.now(), 
+      writerUID: userObject.uid
     };
 
     await addDoc(collection(fireDatabase, "contents"), contentObject);
