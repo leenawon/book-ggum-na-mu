@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { fireDatabase } from 'myFirebase';
+import { ref, uploadString, getDownloadURL } from "firebase/storage";
+import { fireDatabase, fireStorage } from 'myFirebase';
 import { addDoc, collection } from 'firebase/firestore';
+import { v4 as uuidv4 } from 'uuid';
 import style from 'css/ContentForm.module.css';
 
 function ContentForm({userObject}) {
@@ -15,14 +17,25 @@ function ContentForm({userObject}) {
 
   const formSubmit = async(e) => {
     e.preventDefault();
+    let imageFileURL = "";
+    // 업로드 하고자 하는 image file이 있는 경우
+    if(imageFile !== "") {
+        // storage에 image file 저장 (경로)
+      const imageFileRef = ref(fireStorage, `${userObject.uid}/${uuidv4()}`);
+      await uploadString(imageFileRef, imageFile, "data_url");
+      // image의 url을 받아서 데이터베이스에 저장하기 위함
+      imageFileURL = await getDownloadURL(imageFileRef).then();
+    }
 
     const contentObject = {
       text, createdAt: Date.now(), 
-      writerUID: userObject.uid
+      writerUID: userObject.uid,
+      imageFileURL
     };
 
     await addDoc(collection(fireDatabase, "contents"), contentObject);
     setText("");
+    setImageFile("");
   };
 
   const imageFileChange = ({target: {files}}) => {
