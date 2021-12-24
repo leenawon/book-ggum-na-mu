@@ -1,6 +1,7 @@
-import { fireDatabase } from 'myFirebase';
+import { fireDatabase, fireStorage } from 'myFirebase';
 import React, { useState } from 'react';
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { deleteObject, ref } from "firebase/storage";
 import style from 'css/Content.module.css';
 
 function Content({content, isWriter}) {
@@ -13,6 +14,9 @@ function Content({content, isWriter}) {
     const confirm = window.confirm("정말 삭제하시겠습니까?");
     if(confirm) {
       await deleteDoc(contentFromDatabase);
+      if(content.imageFileURL !== "") {
+        await deleteObject(ref(fireStorage, content.imageFileURL));
+      }
     }
   };
 
@@ -47,6 +51,9 @@ function Content({content, isWriter}) {
         :
         <>
           <h4 className={style.title}>{content.text}</h4>
+          {content.imageFileURL && 
+            <img className={style.image} src={content.imageFileURL} alt="업로드 이미지" />
+          }
           {/* 작성자와 로그인 중인 사용자가 같을 때 */}
           {isWriter && 
             <div className={style.content_button}>
