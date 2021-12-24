@@ -8,7 +8,7 @@ import Profile from 'pages/Profile';
 const AppRouter = ({login, userObject}) => {
   return (
     <Router>
-      {login && <Navigation/>}
+      {login && <Navigation userObject={userObject}/>}
       <Routes>
         {
           login ?
