@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import style from 'css/Navigation.module.css';
 
-function Navigation() {
+function Navigation({userObject}) {
   return (
     <nav>
       <ul className={style.nav_list}>
@@ -10,7 +10,7 @@ function Navigation() {
           <Link to="/" >🏡홈으로</Link>
         </li>
         <li>
-          <Link to="/profile">💚의 프로필</Link>
+          <Link to="/profile">💚{userObject.displayName}의 프로필</Link>
         </li>
       </ul>
     </nav>
