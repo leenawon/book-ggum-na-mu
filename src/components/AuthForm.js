@@ -50,7 +50,7 @@ function AuthForm() {
         <input type="email" name="email" value={form.email} placeholder="이메일" required onChange={formChange} />
         <input type="password" name="password" value={form.password} placeholder="비밀번호" required onChange={formChange} />
         <button type="submit">{createAccount ? "회원가입" : "로그인"}</button>
-        <p>Error : {error}</p>
+        {error && <p>Error : {error}</p>}
       </form>
       <button className={style.toggle_button} onClick={toggleAccountButton}>{createAccount ? "로그인하기" : "회원가입하기"}</button>
     </div>
