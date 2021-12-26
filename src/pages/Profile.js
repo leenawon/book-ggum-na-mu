@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { updateProfile } from 'firebase/auth';
 import style from 'css/Profile.module.css';
 
-function Profile({userObject}) {
+function Profile({userObject, currentUserName}) {
   const [userName, setUserName] = useState(userObject.displayName);
   const navigate = useNavigate();
   const handleLogoutButton = () => {
@@ -23,6 +23,8 @@ function Profile({userObject}) {
       await updateProfile(firebaseAuth.currentUser, {
         displayName: userName
       });
+      // project안에서의 displayName 역시 변경시켜줌
+      currentUserName();
     }
     navigate('/');
   };
