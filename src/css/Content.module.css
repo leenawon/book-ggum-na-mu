@@ -1,0 +1,49 @@
+/* Update Form Flex Style */
+.update_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+/* Update Form Input */
+.update_form input {
+  width: 200px;
+  border: var(--border-style);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+}
+
+/* Update Form Button */
+.update_form button {
+  color: var(--dark-green);
+  background-color: var(--light-green);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  margin-left: 1rem;
+}
+
+/* Content Title */
+.title {
+  margin: 2rem 0 0.5rem;
+}
+
+/* Content Image */
+.image {
+  width: auto;
+  height: 120px;
+  border-radius: var(--border-radius);
+}
+
+/* Content Button (update, delete button) Flex Style */
+.content_button {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.content_button button {
+  margin: 1rem 0;
+  border-bottom: var(--border-style);
+}
