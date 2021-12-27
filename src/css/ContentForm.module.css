@@ -1,0 +1,58 @@
+/* Common Flex Style */
+.content_form,
+.input_wrapper,
+.image_upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Input Wrapper */
+.input_wrapper {
+  margin: 1rem 0 0.5rem;
+}
+
+.input_wrapper input {
+  width: 200px;
+  border: var(--border-style);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Common Button Style */
+.image_upload button,
+.submit_button {
+  color: var(--dark-green);
+  background-color: var(--light-green);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+}
+
+.image_upload button:hover,
+.submit_button:hover {
+  color: var(--white);
+}
+
+.submit_button {
+  margin-left: 1rem;
+}
+
+/* Input Type = File */
+input[type="file"] {
+  display: none;
+}
+
+.input_wrapper label {
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Image File Upload */
+.image_upload img {
+  width: auto;
+  height: 120px;
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius);
+}
