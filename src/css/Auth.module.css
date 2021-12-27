@@ -1,0 +1,54 @@
+/* Auth Form */
+.auth_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+/* Auth Form Input */
+.auth_form input {
+  width: 200px;
+  border: 3px solid var(--light-green);
+  border-radius: var(--border-radius);
+  padding: 0.7rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+input[type="password"] {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="password"]::placeholder {
+  font-family: "OTWelcomeRA";
+}
+
+/* Auth Form Button */
+.auth_form button {
+  color: var(--white);
+  background-color: var(--soft-green);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+}
+
+.auth_form button:hover {
+  color: var(--dark-green);
+}
+
+/* Toggle Login or SignUp Button */
+.toggle_button {
+  border-bottom: var(--border-style);
+  margin-bottom: 2rem;
+}
+
+.toggle_button:hover {
+  color: var(--dark-green);
+}
+
+/* Social Login Button */
+.social_login {
+  background-color: var(--light-green);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 0.8rem;
+}
