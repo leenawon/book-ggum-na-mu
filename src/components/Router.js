@@ -7,7 +7,7 @@ import Profile from 'pages/Profile';
 
 const AppRouter = ({login, userObject, currentUserName}) => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       {login && <Navigation userObject={userObject}/>}
       <Routes>
         {
