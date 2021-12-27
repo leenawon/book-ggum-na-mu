@@ -54,6 +54,7 @@ function Content({content, isWriter}) {
           {content.imageFileURL && 
             <img className={style.image} src={content.imageFileURL} alt="업로드 이미지" />
           }
+          <h5>글쓴이 : {content.writer}</h5>
           {/* 작성자와 로그인 중인 사용자가 같을 때 */}
           {isWriter && 
             <div className={style.content_button}>

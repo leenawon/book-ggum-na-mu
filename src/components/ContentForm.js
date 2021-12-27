@@ -30,7 +30,8 @@ function ContentForm({userObject}) {
     const contentObject = {
       text, createdAt: Date.now(), 
       writerUID: userObject.uid,
-      imageFileURL
+      imageFileURL,
+      writer: userObject.displayName
     };
 
     await addDoc(collection(fireDatabase, "contents"), contentObject);
