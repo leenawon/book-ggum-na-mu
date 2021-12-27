@@ -1,0 +1,18 @@
+/* Nav List Flex Style */
+.nav_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.3rem;
+  height: 50px;
+}
+
+.nav_list li:first-child {
+  margin-right: 3rem;
+}
+
+/* 각각의 list item Hover Style */
+.nav_list li:hover {
+  border-bottom: var(--border-style);
+  color: var(--dark-green);
+}
